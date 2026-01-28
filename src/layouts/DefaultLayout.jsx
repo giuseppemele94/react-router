@@ -5,13 +5,17 @@ function DefaultLayout() {
 
 
     return (
-       
+       <>
         <header>
             <NavBar/>
-            {/** in outlet react inserisce Homepage/aboutus/products , quindi il layout non cambia mai cambia solo il contenuto di outlet */}
+             </header>
+            
+            
+            <main>
+                {/** in outlet react inserisce Homepage/aboutus/products , quindi il layout non cambia mai cambia solo il contenuto di outlet */}
             <Outlet/> 
-        </header>
-       
+       </main>
+       </>
     )
 }
 
