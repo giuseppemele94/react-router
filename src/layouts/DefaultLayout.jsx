@@ -5,12 +5,12 @@ function DefaultLayout() {
 
 
     return (
-       <div>
+       
         <header>
             <NavBar/>
             <Outlet/>
         </header>
-       </div>
+       
     )
 }
 
