@@ -2,7 +2,7 @@ function ProductCard({ product }) {
 
     //destrutturo oggetto propr 
 
-    const { title, price, description, category, image, rating } = product;
+    const { title, price, description, category, image } = product;
 
     return (
         <div className="col-lg-4">
@@ -19,7 +19,7 @@ function ProductCard({ product }) {
                     <div className="d-flex justify-content-center gap-3 mb-3">
                         <span className="fst-italic">{category}</span>
                         <span className=" fst-italic">{price}</span>
-                        <span className=" fst-italic">{rating}</span>
+                        {/* <span className=" fst-italic">{rating}</span> */}
                     </div>
 
                 </div>
