@@ -1,31 +1,52 @@
 function ProductCard({ product }) {
 
-    //destrutturo oggetto propr 
+  const { title, price, description, category, image } = product;
 
-    const { title, price, description, category, image } = product;
+  return (
+    <div className="lg-4">
+      <div className="card h-100 shadow-sm">
 
-    return (
-        <div className="col-lg-4">
-            <div className="card actor-card h-100 shadow-lg ">
-                <div className="card-body text-center d-flex flex-column">
-                    <h3 className="card-title  fw-bold mb-3">{title}</h3>
+        <div className="card-body d-flex flex-column">
 
-                    <div className="actor-img-wrap mx-auto mb-3">
-                        <img className="actor-img" src={image} alt={title} />
-                    </div>
+          {/* Titolo*/}
+          <h5 className="card-title fw-bold mb-2 text-center">
+            {title}
+          </h5>
 
-                    <p className="small mb-3">{description}</p>
+          {/* Immagine */}
+          <div className="d-flex align-items-center justify-content-center p-3">
+            <img
+              src={image}
+              alt={title}
+              className="img-fluid"
+              style={{
+                maxHeight: "260px",
+                objectFit: "contain"
+              }}
+            />
+          </div>
 
-                    <div className="d-flex justify-content-center gap-3 mb-3">
-                        <span className="fst-italic">{category}</span>
-                        <span className=" fst-italic">{price}</span>
-                        {/* <span className=" fst-italic">{rating}</span> */}
-                    </div>
+          {/* Categoria */}
+          <span className="badge bg-secondary align-self-center mb-3">
+            {category}
+          </span>
 
-                </div>
-            </div>
+          {/* Descrizione */}
+          <p className="small text-center text-muted mb-3">
+            {description}
+          </p>
+
+          {/* Prezzo */}
+          <div className="d-flex justify-content-end mt-auto">
+            <span className="text-primary fs-5 fw-bold">
+              € {price}
+            </span>
+          </div>
+
         </div>
-    )
+      </div>
+    </div>
+  );
 }
 
-export default ProductCard
+export default ProductCard;
