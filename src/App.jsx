@@ -11,6 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/** in default layout ci sono tutte le pagine che devono condividere lo stesso layout  */}
         <Route element={<DefaultLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/chisiamo" element={<AboutUs />} />

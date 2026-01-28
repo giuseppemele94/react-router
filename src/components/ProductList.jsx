@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react"
+
 import ProductCard from "./productCard"
-import axios from "axios";
+
 
 function ProductList({products}) {
-
-    
 
     return (
         <div className="container-md py-5">
