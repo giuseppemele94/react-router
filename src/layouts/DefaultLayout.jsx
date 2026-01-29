@@ -12,7 +12,9 @@ function DefaultLayout() {
             
             
             <main>
-                {/** in outlet react inserisce Homepage/aboutus/products , quindi il layout non cambia mai cambia solo il contenuto di outlet */}
+                {/** in outlet react inserisce Homepage/aboutus/products , quindi il layout non cambia mai cambia solo il contenuto di outlet in 
+                 * base ai segnaposto 
+                */}
             <Outlet/> 
        </main>
        </>

@@ -3,7 +3,7 @@ import AboutUs from "./pages/AboutUs"
 import Products from "./pages/Products"
 import DefaultLayout from "./layouts/DefaultLayout"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-
+import ProductsDetail from "./pages/ProductsDetail"
 
 function App() {
 
@@ -15,8 +15,11 @@ function App() {
         <Route element={<DefaultLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/chisiamo" element={<AboutUs />} />
-          <Route path="/prodotti" element={<Products />} />
-        </Route>
+          <Route path="/prodotti" >
+            <Route index element={<Products />} />
+            <Route path=":id" element={<ProductsDetail />} />
+            </Route>
+          </Route>
       </Routes>
 
     </BrowserRouter>
