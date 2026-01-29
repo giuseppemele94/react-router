@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom";
 
-function ProductCard({ product }) {
+
+function ProductCard({ product, children }) {
+
+//children mi permette di inserire codice JSX tra <ProductCard>..</ProductCard> ovvero il componente padre 
+//quindi lo uso per inserire il link per navigare all'interno della pagina del prodotto singolo in Product List 
+// e inserire il link per tornare nella pagina dei prodotti in ProductsDetails
 
     const { title, price, description, category, image, rating, id } = product;
 
@@ -48,9 +52,12 @@ function ProductCard({ product }) {
                         € {price}
                     </p>
 
-                    <Link to={`/prodotti/${id}`} className="btn btn-primary align-self-center">
-                        Vai al dettaglio
-                    </Link>
+                    {/* bottone passato come figlio dal padre */}
+                    {children && (
+                        <div className="mt-auto d-flex justify-content-center">
+                            {children}
+                        </div>
+                    )}
 
                 </div>
             </div>

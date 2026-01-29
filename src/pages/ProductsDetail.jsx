@@ -2,19 +2,19 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import ProductCard from "../components/productCard";
-
+import { Link } from "react-router-dom";
 
 const endpointBase = "https://fakestoreapi.com/products/";
 
 function ProductsDetail() {
 
-     // recuper valore param dinamico grazie a hook useParams
+    // recuper valore param dinamico grazie a hook useParams
     const { id } = useParams();
 
     // var di stato per salvare info oggetto prodotto
     const [product, setProduct] = useState();
-   
-     // utilizzo il parametro per la chiamata corretta (sempre passando da hook su primo montaggio)
+
+    // utilizzo il parametro per la chiamata corretta (sempre passando da hook su primo montaggio)
     useEffect(() => {
         axios.get(endpointBase + id)
             .then(resp => setProduct(resp.data))
@@ -24,15 +24,22 @@ function ProductsDetail() {
     }, [])
 
     return (
-       
+
         <>
             <h1 className="mb-4 d-flex align-items-center justify-content-center p-3">Dettaglio del Prodotto</h1>
             {product ? (
-                <ProductCard product={product} />
+                <ProductCard product={product}>
+                    <Link to="/prodotti" className="btn btn-primary">
+                        Torna ai Prodotti
+                    </Link>
+                </ ProductCard>
+
             ) : (
                 <p className="loader">Loading...</p>
             )
+
             }
+
 
         </>
     )
