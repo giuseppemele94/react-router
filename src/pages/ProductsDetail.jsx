@@ -8,21 +8,29 @@ const endpointBase = "https://fakestoreapi.com/products/";
 
 function ProductsDetail() {
 
+
+    // eseguiamo useNavigate per aver un elemento navigate da utilizzare
+    const navigate = useNavigate();
+     
+
     // recuper valore param dinamico grazie a hook useParams
     const { id } = useParams();
 
     // var di stato per salvare info oggetto prodotto
-    const [product, setProduct] = useState();
+    const [product, setProduct] = useState(null);
 
     // utilizzo il parametro per la chiamata corretta (sempre passando da hook su primo montaggio)
     useEffect(() => {
         axios.get(endpointBase + id)
+        
             .then(resp => setProduct(resp.data))
             .catch(err => {
                 console.log("errore sulla chiamata", err)
+                navigate('/prodotti'); 
             })
     }, [])
 
+      
     return (
 
         <>

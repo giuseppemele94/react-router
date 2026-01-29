@@ -4,6 +4,7 @@ import Products from "./pages/Products"
 import DefaultLayout from "./layouts/DefaultLayout"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ProductsDetail from "./pages/ProductsDetail"
+import NotFoundPage from "./pages/NotFoundPage"
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
             <Route index element={<Products />} />
             <Route path=":id" element={<ProductsDetail />} />
             </Route>
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
       </Routes>
 
