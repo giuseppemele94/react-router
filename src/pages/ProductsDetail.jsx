@@ -8,10 +8,10 @@ const endpointBase = "https://fakestoreapi.com/products/";
 
 function ProductsDetail() {
 
-
     // eseguiamo useNavigate per aver un elemento navigate da utilizzare
     const navigate = useNavigate();
-     
+
+
 
     // recuper valore param dinamico grazie a hook useParams
     const { id } = useParams();
@@ -21,16 +21,25 @@ function ProductsDetail() {
 
     // utilizzo il parametro per la chiamata corretta (sempre passando da hook su primo montaggio)
     useEffect(() => {
-        axios.get(endpointBase + id)
-        
-            .then(resp => setProduct(resp.data))
-            .catch(err => {
-                console.log("errore sulla chiamata", err)
-                navigate('/prodotti'); 
-            })
-    }, [])
+        axios
+            .get(endpointBase + id)
+            .then((resp) => {
+                // controllo manuale perché l'API risponde 200 anche se l'id non esiste
+                //quindi se resp.data o resp.data.id non esiste(non trova un id) quindi è true,  lancia la navigazione programmatica
+                if (!resp.data || !resp.data.id) {
+                    navigate("/prodotti");
+                    return;
+                }
 
-      
+                setProduct(resp.data);
+            })
+            .catch((err) => {
+                console.log("errore sulla chiamata", err);
+                navigate("/prodotti");
+            });
+    }, [id, navigate]);
+
+
     return (
 
         <>
