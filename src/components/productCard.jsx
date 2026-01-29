@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 function ProductCard({ product }) {
 
-    const { title, price, description, category, image, rating } = product;
+    const { title, price, description, category, image, rating, id } = product;
 
     return (
         <div className="lg-4">
@@ -46,7 +48,9 @@ function ProductCard({ product }) {
                         € {price}
                     </p>
 
-
+                    <Link to={`/prodotti/${id}`} className="btn btn-primary align-self-center">
+                        Vai al dettaglio
+                    </Link>
 
                 </div>
             </div>
